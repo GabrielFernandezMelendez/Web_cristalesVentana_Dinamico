@@ -1,0 +1,116 @@
+/* ==========================================================
+   ORGANISMO: hero dinámico (ventanas)
+   Fondo verde vidrio, foto enmarcada como una ventana con un
+   rayo de sol que la cruza y un "sol" flotando.
+   ========================================================== */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 72px 0 104px;
+  background: var(--c-primary);
+  color: var(--c-stone);
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  left: -140px;
+  bottom: -200px;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: #285E6B;
+  pointer-events: none;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero__chip {
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--c-accent);
+  color: var(--c-ink);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.hero h1 em {
+  color: #E8DCC4;
+}
+
+.hero .lead {
+  color: #E3EEEF;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__actions .btn--light {
+  background: var(--c-stone);
+}
+
+.hero__actions .btn--outline {
+  color: var(--c-stone);
+  border-color: #8FB5BC;
+}
+
+.hero__stage {
+  position: relative;
+  height: 480px;
+}
+
+/* Sol que flota */
+.hero__sun {
+  position: absolute;
+  right: 2%;
+  top: 0;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background: #E8DCC4;
+  animation: bob 6s ease-in-out infinite;
+}
+
+/* Marco de la ventana con el rayo de sol (clase .shine) */
+.hero__window {
+  position: absolute;
+  left: 4%;
+  top: 8%;
+  width: 84%;
+  height: 86%;
+  border: 10px solid var(--c-stone);
+  border-radius: 28px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+  --shine-color: rgba(255, 240, 210, 0.6);
+}
+
+.hero__window img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .hero__stage {
+    height: 340px;
+  }
+
+  .hero__sun {
+    width: 90px;
+    height: 90px;
+  }
+}
